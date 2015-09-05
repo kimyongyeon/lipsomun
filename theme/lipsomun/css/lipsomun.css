@@ -1,0 +1,42 @@
+nav {background: white;}
+nav table {table-layout: fixed; width: 100%; height: 50px;}
+nav table td {text-align: center; vertical-align: middle;}
+nav table td i {cursor: pointer;}
+nav table td div {text-align: center; overflow: hidden; max-height: 40px;}
+nav table td div > img.lips {position: relative; width: 40px; height: 40px;}
+nav table td div > input.totalSearch {display: none; width: 100%; height: 100%; text-align: center; border: 0px; border-bottom: 1px solid silver; outline: 0px none silver;}
+
+div.wrapper {padding-top: 50px; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.1);}
+div.menus ul {padding: 0px; list-style-type: none; margin: 0px;}
+div.menus ul li a {color: white; text-decoration: none;}
+div.menus ul li a i {margin-right: 10px;}
+
+@media (max-width: 767px) {
+    div.menus {position: absolute; top: 0px; left: 0px; padding-top: 50px; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); display: none;}
+    div.menus > ul {position: relative; left: -200px; width: 200px; height: 100%; background: black; color: white;}
+    div.menus ul li a {padding-left: 20px;}
+    div.menus ul li a:hover, div.menus ul li:hover > a {color: hotpink;}
+    div.menus ul > li {padding: 10px 0px 0px 0px;}
+    div.menus li li {padding: 10px 0px;}
+    div.menus ul li ul {background: #444; color: black; padding: 0px; margin-top: 10px; display: none;}
+    div.menus ul li:first-child ul {display: block;}
+    div.menus ul li:hover ul {display: block;}
+    div.menus li li a {padding-left: 20px; text-decoration: none;}
+    div.menus li li:hover, div.menus li li a:hover, div.menus ul li:hover > a {background: black; color: hotpink;}
+}
+
+@media (min-width: 768px) {
+    div.menus {float: left; overflow: hidden; width: 100%; background-color: black;}
+    div.menus ul {width: 100%;}
+    div.menus ul li {float: left;}
+    div.menus ul li a {float: left; background: black; padding: 10px 20px;}
+    div.menus ul li a:hover, div.menus ul li:hover > a {color: hotpink;}
+    div.menus li ul a:hover, div.menus ul li li:hover > a {background: black; color: hotpink;}
+    div.menus li ul {position: absolute; left: -9999px; width: 150px; margin-top: 40px; background: #444; z-index: 9999;}
+    div.menus li:hover ul {left: auto;}
+    div.menus li ul a {background: none; border: 0px none; margin-right: 0px; width: 150px;}
+    div.menus li li ul {margin: -1px 0 0 150px; visibility: hidden;}
+    div.menus li li:hover ul {visibility: visible;}
+}
+
+div.contents {clear: both;}

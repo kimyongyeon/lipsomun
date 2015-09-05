@@ -10,11 +10,8 @@ if (G5_IS_MOBILE) {
 include_once(G5_THEME_PATH.'/head.php');
 ?>
 
-
-        <div class="contents">
             contents...
-        </div><!--/ div.contents -->
-    </div><!--/ div.wrapper -->
+
 
     <script src="https://fb.me/react-0.13.3.min.js"></script>
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>

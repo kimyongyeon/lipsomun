@@ -44,41 +44,81 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
 <div class="wrapper">
     <div class="menus">
         <ul>
-            <li>
-                <a class="sub" href="#"><i class="fa fa-video-camera"></i>Movie</a>
-                <ul>
-                    <li><a href="bbs/board.php?bo_table=KOREA_YADONG">한국 야동</a></li>
-                    <li><a href="#">일본/중국 야동</a></li>
-                    <li><a href="#">서양 야동</a></li>
-                    <li><a href="#">한국 영화</a></li>
-                    <li><a href="#">외국 영화</a></li>
-                </ul>
+            <?php
+            $sql = " select *
+                        from {$g5['menu_table']}
+                        where me_use = '1'
+                          and length(me_code) = '2'
+                        order by me_order, me_id ";
+            $result = sql_query($sql, false);
+            $gnb_zindex = 999; // gnb_1dli z-index 값 설정용
+
+            for ($i=0; $row=sql_fetch_array($result); $i++) {
+            ?>
+             <li style="z-index:<?php echo $gnb_zindex--; ?>">
+             <a class="sub" href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="fa fa-camera"> <?php echo $row['me_name'] ?></i></a>
+                <?php
+                $sql2 = " select *
+                            from {$g5['menu_table']}
+                            where me_use = '1'
+                              and length(me_code) = '4'
+                              and substring(me_code, 1, 2) = '{$row['me_code']}'
+                            order by me_order, me_id ";
+                $result2 = sql_query($sql2);
+
+                for ($k=0; $row2=sql_fetch_array($result2); $k++) {
+                    if($k == 0)
+                        echo '<ul>'.PHP_EOL;
+                ?>
+                    <li><a href="<?php echo $row2['me_link']; ?>" target="_<?php echo $row2['me_target']; ?>" class="gnb_2da"><?php echo $row2['me_name'] ?></a></li>
+                <?php
+                }
+
+                if($k > 0)
+                    echo '</ul>'.PHP_EOL;
+                ?>
             </li>
-            <li>
-                <a class="sub" href="#"><i class="fa fa-camera"></i>Photo</a>
-                <ul>
-                    <li><a href="#">여자 사진</a></li>
-                    <li><a href="#">남자 사진</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="sub" href="#"><i class="fa fa-tv"></i>TV</a>
-                <ul>
-                    <li><a href="#">한국 드라마</a></li>
-                    <li><a href="#">미/영 드라마</a></li>
-                    <li><a href="#">코미디</a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="sub" href="#"><i class="fa fa-commenting"></i>글 남기기</a>
-                <ul>
-                    <li><a href="#">출석부</a></li>
-                    <li><a href="#">운영자에게</a></li>
-                </ul>
-            </li>
+            <?php
+            }
+
+            if ($i == 0) {  ?>
+                <li>메뉴 준비 중입니다.<?php if ($is_admin) { ?> <br><a href="<?php echo G5_ADMIN_URL; ?>/menu_list.php">관리자모드 &gt; 환경설정 &gt; 메뉴설정</a>에서 설정하실 수 있습니다.<?php } ?></li>
+            <?php } ?>
+
+
+            <!--            <ul>-->
+            <!--                    <li><a href="bbs/board.php?bo_table=KOREA_YADONG">한국 야동</a></li>-->
+            <!--                    <li><a href="#">일본/중국 야동</a></li>-->
+            <!--                    <li><a href="#">서양 야동</a></li>-->
+            <!--                    <li><a href="#">한국 영화</a></li>-->
+            <!--                    <li><a href="#">외국 영화</a></li>-->
+            <!--                </ul>-->
+            <!--            </li>-->
+            <!--            <li>-->
+            <!--                <a class="sub" href="#"><i class="fa fa-camera"></i>Photo</a>-->
+            <!--                <ul>-->
+            <!--                    <li><a href="#">여자 사진</a></li>-->
+            <!--                    <li><a href="#">남자 사진</a></li>-->
+            <!--                </ul>-->
+            <!--            </li>-->
+            <!--            <li>-->
+            <!--                <a class="sub" href="#"><i class="fa fa-tv"></i>TV</a>-->
+            <!--                <ul>-->
+            <!--                    <li><a href="#">한국 드라마</a></li>-->
+            <!--                    <li><a href="#">미/영 드라마</a></li>-->
+            <!--                    <li><a href="#">코미디</a></li>-->
+            <!--                </ul>-->
+            <!--            </li>-->
+            <!--            <li>-->
+            <!--                <a class="sub" href="#"><i class="fa fa-commenting"></i>글 남기기</a>-->
+            <!--                <ul>-->
+            <!--                    <li><a href="#">출석부</a></li>-->
+            <!--                    <li><a href="#">운영자에게</a></li>-->
+            <!--                </ul>-->
+            <!--            </li>-->
 
             <li>
-                <a class="sub" href="#"><i class="fa fa-commenting"></i>관리자 메뉴</a>
+                <a class="sub" href="#"><i class="fa fa-commenting"></i>Admin</a>
                 <ul>
                     <?php if ($is_member) { ?>
                         <?php if ($is_admin) { ?>
@@ -107,4 +147,4 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
 
 
     <!-- 콘텐츠 시작 { -->
-
+    <div class="contents">

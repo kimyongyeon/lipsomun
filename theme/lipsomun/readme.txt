@@ -1,4 +1,4 @@
-Theme Name: XY
+Theme Name: lipsomun
 Theme URI: http://theme.sir.co.kr/gnuboard5/demo/basic
 Maker: SIR
 Maker URI: http://sir.co.kr

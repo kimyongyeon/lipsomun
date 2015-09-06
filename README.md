@@ -15,3 +15,11 @@ DNS 기본개념 http://studyforus.tistory.com/52
 해외도메인 등록방안 확인중 7.1. http://tyzen.net/124
 
 도메인 차단시 자동알림 시스템 필요함. 그래야 도메인을 변경해서 비용이나 시기를 맞출 수 있을듯.
+
+초기화
+git ftp init -u <user> -P ftp://host.example.com/public_html
+푸시
+git ftp push -u <user> -P ftp://host.example.com/public_html
+
+
+

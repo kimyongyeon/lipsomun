@@ -56,7 +56,21 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
             for ($i=0; $row=sql_fetch_array($result); $i++) {
             ?>
              <li style="z-index:<?php echo $gnb_zindex--; ?>">
-             <a class="sub" href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="fa fa-camera"> <?php echo $row['me_name'] ?></i></a>
+             <a class="sub" href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da">
+                        <?php
+
+                          if ( $row['me_name'] == "Movie") {
+                                echo '<i class="fa fa-video-camera">';
+                          } else if ( $row['me_name'] == "Photo") {
+                                echo '<i class="fa fa-camera">';
+                          } else if ( $row['me_name'] == "TV") {
+                                echo '<i class="fa fa-tv">';
+                          } else if ( $row['me_name'] == "글 남기기") {
+                                echo '<i class="fa fa-commenting">';
+                          }
+
+                        ?>
+                        <?php echo $row['me_name'] ?></i></a>
                 <?php
                 $sql2 = " select *
                             from {$g5['menu_table']}
@@ -118,7 +132,7 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
             <!--            </li>-->
 
             <li>
-                <a class="sub" href="#"><i class="fa fa-commenting"></i>Admin</a>
+                <a class="sub" href="#"><i class="fa fa-lock"></i>Admin</a>
                 <ul>
                     <?php if ($is_member) { ?>
                         <?php if ($is_admin) { ?>

@@ -100,6 +100,13 @@ if($sql) {
             <input type="text" name="me_link" id="me_link" required class="frm_input full_input required">
         </td>
     </tr>
+    <tr>
+        <th scope="row"><label for="me_link">아이콘<strong class="sound_only"> 필수</strong></label></th>
+        <td>
+            <?php echo help('fa-camera와 같은 형식으로 입력 바랍니다.'); ?>
+            <input type="text" name="me_icon" id="me_icon" required class="frm_input full_input required">
+        </td>
+    </tr>
     </tbody>
     </table>
 </div>

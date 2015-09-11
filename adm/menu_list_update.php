@@ -24,8 +24,9 @@ for ($i=0; $i<$count; $i++)
     $code    = $_POST['code'][$i];
     $me_name = $_POST['me_name'][$i];
     $me_link = $_POST['me_link'][$i];
+    $me_icon = $_POST['me_icon'][$i];
 
-    if(!$code || !$me_name || !$me_link)
+    if(!$code || !$me_name || !$me_link || !$me_icon)
         continue;
 
     $sub_code = '';
@@ -59,6 +60,7 @@ for ($i=0; $i<$count; $i++)
                 set me_code         = '$me_code',
                     me_name         = '$me_name',
                     me_link         = '$me_link',
+                    me_icon         = '$me_icon',
                     me_target       = '{$_POST['me_target'][$i]}',
                     me_order        = '{$_POST['me_order'][$i]}',
                     me_use          = '{$_POST['me_use'][$i]}',

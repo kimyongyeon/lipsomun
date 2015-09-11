@@ -10,7 +10,8 @@ if (G5_IS_MOBILE) {
 include_once(G5_THEME_PATH.'/head.php');
 ?>
 
-            kyy. contents...
+test
+
 
 
     <script src="https://fb.me/react-0.13.3.min.js"></script>

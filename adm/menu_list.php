@@ -18,6 +18,7 @@ if(!sql_query(" DESCRIBE {$g5['menu_table']} ", false)) {
                   `me_code` varchar(255) NOT NULL DEFAULT '',
                   `me_name` varchar(255) NOT NULL DEFAULT '',
                   `me_link` varchar(255) NOT NULL DEFAULT '',
+                  `me_icon` varchar(255) NOT NULL DEFAULT '',
                   `me_target` varchar(255) NOT NULL DEFAULT '0',
                   `me_order` int(11) NOT NULL DEFAULT '0',
                   `me_use` tinyint(4) NOT NULL DEFAULT '0',
@@ -32,7 +33,7 @@ $result = sql_query($sql);
 $g5['title'] = "메뉴설정";
 include_once('./admin.head.php');
 
-$colspan = 7;
+$colspan = 8;
 ?>
 
 <div class="local_desc01 local_desc">
@@ -57,6 +58,7 @@ $colspan = 7;
         <th scope="col">순서</th>
         <th scope="col">PC사용</th>
         <th scope="col">모바일사용</th>
+        <th scope="col">아이콘</th>
         <th scope="col">관리</th>
     </tr>
     </thead>
@@ -110,6 +112,10 @@ $colspan = 7;
                 <option value="1"<?php echo get_selected($row['me_mobile_use'], '1', true); ?>>사용함</option>
                 <option value="0"<?php echo get_selected($row['me_mobile_use'], '0', true); ?>>사용안함</option>
             </select>
+        </td>
+        <td>
+            <label for="me_icon<?php echo $i; ?>" class="sound_only">아이콘<strong class="sound_only"> 필수</strong></label>
+            <input type="text" name="me_icon[]" value="<?php echo $row['me_icon'] ?>" id="me_icon_<?php echo $i; ?>" required class="required frm_input full_input">
         </td>
         <td class="td_mng">
             <?php if(strlen($row['me_code']) == 2) { ?>

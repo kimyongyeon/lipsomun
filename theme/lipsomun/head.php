@@ -68,7 +68,11 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
                           } else if ( $row['me_name'] == "글 남기기") {
                                 echo '<i class="fa fa-commenting">';
                           } else {
-                                echo '<i class="fa '.$row['me_icon'].'">';
+                                if( $row['me_icon'] == '1') {
+                                    echo '<i class="fa fa-commenting">';
+                                } else {
+                                    echo '<i class="fa '.$row['me_icon'].'">';
+                                }
                           }
 
                         ?>

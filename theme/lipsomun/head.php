@@ -39,11 +39,20 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
             </td>
         </tr>
     </table>
-</nav><!--/ nav.navbar -->
 
-<div class="wrapper">
     <div class="menus">
         <ul>
+            <li>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="ID"/>
+                        <input type="password" class="form-control" placeholder="Password"/>
+                    </div>
+                    <button type="button" class="btn bgGray"><i class="fa fa-unlock white"></i></button>
+                    <button type="button" class="btn bgSilver"><i class="fa fa-info-circle"></i></button>
+                    <button type="button" class="btn bgWhite"><i class="fa fa-user-plus black"></i></button>
+                </form>
+            </li>
             <?php
             $sql = " select *
                         from {$g5['menu_table']}
@@ -104,39 +113,6 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
             if ($i == 0) {  ?>
                 <li>메뉴 준비 중입니다.<?php if ($is_admin) { ?> <br><a href="<?php echo G5_ADMIN_URL; ?>/menu_list.php">관리자모드 &gt; 환경설정 &gt; 메뉴설정</a>에서 설정하실 수 있습니다.<?php } ?></li>
             <?php } ?>
-
-
-            <!--            <ul>-->
-            <!--                    <li><a href="bbs/board.php?bo_table=KOREA_YADONG">한국 야동</a></li>-->
-            <!--                    <li><a href="#">일본/중국 야동</a></li>-->
-            <!--                    <li><a href="#">서양 야동</a></li>-->
-            <!--                    <li><a href="#">한국 영화</a></li>-->
-            <!--                    <li><a href="#">외국 영화</a></li>-->
-            <!--                </ul>-->
-            <!--            </li>-->
-            <!--            <li>-->
-            <!--                <a class="sub" href="#"><i class="fa fa-camera"></i>Photo</a>-->
-            <!--                <ul>-->
-            <!--                    <li><a href="#">여자 사진</a></li>-->
-            <!--                    <li><a href="#">남자 사진</a></li>-->
-            <!--                </ul>-->
-            <!--            </li>-->
-            <!--            <li>-->
-            <!--                <a class="sub" href="#"><i class="fa fa-tv"></i>TV</a>-->
-            <!--                <ul>-->
-            <!--                    <li><a href="#">한국 드라마</a></li>-->
-            <!--                    <li><a href="#">미/영 드라마</a></li>-->
-            <!--                    <li><a href="#">코미디</a></li>-->
-            <!--                </ul>-->
-            <!--            </li>-->
-            <!--            <li>-->
-            <!--                <a class="sub" href="#"><i class="fa fa-commenting"></i>글 남기기</a>-->
-            <!--                <ul>-->
-            <!--                    <li><a href="#">출석부</a></li>-->
-            <!--                    <li><a href="#">운영자에게</a></li>-->
-            <!--                </ul>-->
-            <!--            </li>-->
-
             <li>
                 <a class="sub" href="#"><i class="fa fa-lock"></i>Admin</a>
                 <ul>
@@ -162,8 +138,9 @@ include_once(G5_LIB_PATH . '/popular.lib.php');
 
             </li>
         </ul>
-    </div>
-    <!--/ div.menus -->
+    </div><!--/ div.menus -->
+</nav><!--/ nav.navbar -->
+
 
 
     <!-- 콘텐츠 시작 { -->

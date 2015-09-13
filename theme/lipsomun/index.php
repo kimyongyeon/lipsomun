@@ -10,9 +10,13 @@ if (G5_IS_MOBILE) {
 include_once(G5_THEME_PATH.'/head.php');
 ?>
 
-test
-
-
+    <table class="sectionWrapper">
+        <tr>
+            <td>
+                <section class="articleWrapper"></section><!--/ section.articleWrapper -->
+            </td>
+        </tr>
+    </table><!--/ table.sectionWrapper > tr > td -->
 
     <script src="https://fb.me/react-0.13.3.min.js"></script>
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
@@ -77,6 +81,29 @@ test
                 $(this).next("ul").show();
             }
         });
+
+        var datas = [
+            {"url": "http://cfile82.uf.daum.net/image/2434D63955EF01181F7C03", "title": "어떤 구멍을 고를까?", "text": "용연이는 구멍을 고르면서 비비다가 싸고 마는데.."}
+            , {"url": "https://40.media.tumblr.com/ba00c551b1345f932aac608644548f42/tumblr_ntr45txhPZ1tkqqero1_500.jpg", "title": "벗겨줘~", "text": "망설이는 용연이를 위해 직접 꼬시기 시작하는데.."}
+            , {"url": "https://40.media.tumblr.com/72602715f8748a4e8e2bddbcef43adda/tumblr_nltnsiFZ6D1t2rp9ko7_540.jpg", "title": "드루와~ 드루와~", "text": "두 번 싼 용연이를 죽일 작정인 백마의 음모를 밝혀라."}
+            , {"url": "https://40.media.tumblr.com/f3f7ef5b9dcc707103871cec029c68ff/tumblr_npvas9Ckaf1sgaxoyo1_500.jpg", "title": "내 꼭지 보여?", "text": "see through! see through! see through! see through!"}
+            , {"url": "https://36.media.tumblr.com/8251c5cddf92bb49b1717e51e6ea8d90/tumblr_nltnsiFZ6D1t2rp9ko3_540.jpg", "title": "넣고 싶어...", "text": "용연이가 바람나서 대주지 않자. 지쳐버린 그녀는.."}
+            , {"url": "http://cfile82.uf.daum.net/image/2434D63955EF01181F7C03", "title": "어떤 구멍을 고를까?", "text": "용연이는 구멍을 고르면서 비비다가 싸고 마는데.."}
+            , {"url": "https://40.media.tumblr.com/ba00c551b1345f932aac608644548f42/tumblr_ntr45txhPZ1tkqqero1_500.jpg", "title": "벗겨줘~", "text": "망설이는 용연이를 위해 직접 꼬시기 시작하는데.."}
+            , {"url": "https://40.media.tumblr.com/72602715f8748a4e8e2bddbcef43adda/tumblr_nltnsiFZ6D1t2rp9ko7_540.jpg", "title": "드루와~ 드루와~", "text": "두 번 싼 용연이를 죽일 작정인 백마의 음모를 밝혀라."}
+            , {"url": "https://40.media.tumblr.com/f3f7ef5b9dcc707103871cec029c68ff/tumblr_npvas9Ckaf1sgaxoyo1_500.jpg", "title": "내 꼭지 보여?", "text": "see through! see through! see through! see through!"}
+            , {"url": "https://36.media.tumblr.com/8251c5cddf92bb49b1717e51e6ea8d90/tumblr_nltnsiFZ6D1t2rp9ko3_540.jpg", "title": "넣고 싶어...", "text": "용연이가 바람나서 대주지 않자. 지쳐버린 그녀는.."}
+        ];
+
+        for(var i = 0; i < datas.length; i++){
+            var data = datas[i];
+            var tags = "<article>"
+                + "<div style='background-image: url(\"" + data.url + "\");'></div>"
+                + "<h5>" + data.title + "</h5>"
+                + "<p>" + data.text + "</p>"
+                + "</article>";
+            $("section.articleWrapper").append(tags);
+        }
     </script>
 
 <?php

@@ -1,6 +1,8 @@
 <?php
 include_once('../../../common.php');
 
+header('Content-Type: application/json');
+
 $resultArray = array();
 
 $ini=$_GET;
@@ -15,7 +17,7 @@ $rowsPerPage = $param['rowsPerPage']; // 페이지당 게시물 수
 if ($board == "") {
     $resultArray["status_msg"] = "error";
     $resultArray["status_code"] = "-1";
-    mylog(json_encode($resultArray)); // board table list
+    echo json_encode($resultArray); // board table list
     return;
 }
 
@@ -40,7 +42,8 @@ for ($i=0; $row = sql_fetch_array($result); $i++) {
         "list" => $list[$i] = get_list($row, $board, '', $subject_len)
     );
 }
-mylog(json_encode($resultArray)); // board table list
+
+echo (json_encode($resultArray)); // board table list
 
 function mylog($msg) {
     echo $msg."<br>";

@@ -1,10 +1,8 @@
 <?php
+header('Content-Type: application/json; charset=utf-8');
 include_once('../../../common.php');
 
-header('Content-Type: application/json');
-
 $resultArray = array();
-
 $ini=$_GET;
 
 foreach($ini as $key=>$val){
@@ -29,24 +27,17 @@ if ($rowsPerPage == "") {
     $rowsPerPage = 10;
 }
 
-$subject_len=40;
 $startPage = ( $currentPageNo - 1 ) * $rowsPerPage;
 $endPage = $rowsPerPage;
-$tmp_write_table = $g5['write_prefix'] . $bo_table; // 게시판 테이블 전체이름
 
-$sql = " select * from {$tmp_write_table} where wr_is_comment = 0 order by wr_num LIMIT  {$startPage}, {$endPage} ";
+$sql = " select * from $board LIMIT  {$startPage}, {$endPage} ";
 $result = sql_query($sql);
+$subject_len =40;
 
 for ($i=0; $row = sql_fetch_array($result); $i++) {
-    $resultArray[$i] = array (
-        "list" => $list[$i] = get_list($row, $board, '', $subject_len)
-    );
+    $resultArray[$i] = $row;
 }
 
-echo (json_encode($resultArray)); // board table list
-
-function mylog($msg) {
-    echo $msg."<br>";
-}
+echo json_encode($resultArray); // board table list
 
 ?>

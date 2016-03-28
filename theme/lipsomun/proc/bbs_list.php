@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *; Content-Type: application/json; charset=utf-8');
 include_once('../../../common.php');
 
 $resultArray = array();
@@ -9,8 +9,8 @@ foreach($ini as $key=>$val){
     $param[$key] = addslashes($val);
 }
 $board = $param['board'];
-$currentPageNo = $param['currentPageNo']; // 페이지 번호
-$rowsPerPage = $param['rowsPerPage']; // 페이지당 게시물 수
+$currentPageNo = $param['currentPageNo']; // ?????? ????
+$rowsPerPage = $param['rowsPerPage']; // ???????? ?????? ??
 
 if ($board == "") {
     $resultArray["status_msg"] = "error";
